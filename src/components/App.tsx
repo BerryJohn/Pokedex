@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './app.css';
+import PokemonList from './PokemonList/PokemonList';
 
 function App() {
-  return (
-    <div>
+    const [isDark, setIsDark] = useState<boolean>(false);
 
-    </div>
-  );
+    const changeThemeHandler = () => {
+        setIsDark(!isDark);
+    };
+
+    return (
+        <div className='container' data-theme={isDark && 'dark'}>
+            <button className='themeButton' onClick={changeThemeHandler}>
+             {isDark ? '☀️' : '🌙'}
+            </button>
+            <PokemonList />     
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,94 @@
+.wrapper{
+    box-sizing: border-box;
+    width:200px;
+    height:120px;
+    background-color: var(--background-secondary);
+    margin:5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius:2px;
+    transition:.2s;
+    position:relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow:0 0 4px var(--background-secondary);
+}
+
+.wrapper:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 10px var(--background-secondary);
+}
+
+.pokemonBaseInfo{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemonName{
+    font-variant: small-caps;
+    font-size:24px;
+    font-weight: 300;
+    margin:0;
+}
+.pokemonType{
+    font-variant: small-caps;
+    font-size:18px;
+    font-weight: 200;
+    margin:0;
+}
+
+.pokemonImg{
+    width:60px;
+    height: 60px;
+    user-select: none;
+}
+
+.pokemonInfos{
+    position:absolute;
+    width:50px;
+    height:50px;
+    transition:.1s;
+    font-variant: small-caps;
+    top:35px;
+    font-size:16px;
+}
+
+.pokemonHeight{
+    left:-50px;
+}
+
+.pokemonInfos > p {
+    margin:0;
+    font-size:14px;
+}
+
+.wrapperExpanded > .pokemonHeight{
+    left:5px;
+}
+
+.pokemonWeight{
+    right:-50px;
+    text-align: right;
+}
+
+.wrapperExpanded > .pokemonWeight{
+    right:5px;
+}
+
+.loader{
+    width:50px;
+    height:50px;
+    animation: loader 2s infinite;
+    position: relative;
+}
+
+@keyframes loader {
+    0% {transform: rotateY(0deg) rotateX(0deg);}
+    20% {transform: rotateY(0deg) rotateX(0deg);}
+    50% {transform: rotateY(180deg) rotateX(0deg);}
+    70% {transform: rotateY(180deg) rotateX(0deg);}
+    100% {transform: rotateY(180deg) rotateX(180deg);}
+  }

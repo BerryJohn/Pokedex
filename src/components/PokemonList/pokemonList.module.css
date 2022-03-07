@@ -1,0 +1,7 @@
+.wrapper{
+    width:1050px;
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(5, 210px);
+    grid-auto-rows: 130px;
+}
