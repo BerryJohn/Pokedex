@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './app.css';
 import PokemonList from './PokemonList/PokemonList';
-import Search from './Search/Search';
+import SearchName from './Search/SearchName';
+import SearchType from './Search/SearchType';
+import useStore from './tools/store';
 
 const App = () => {
     const [darkTheme, setDarkTheme] = useState<boolean>(false);
@@ -33,8 +35,8 @@ const App = () => {
                 🔎
             </button>
             <div className="test">
-                <Search />    
-                <Search />    
+                <SearchName />    
+                <SearchType />    
             </div>
             <PokemonList />     
         </div>
