@@ -3,9 +3,11 @@ import useStore from '../../tools/store';
 import styles from './search.module.css';
 
 const SearchType = () => {
+    //GlobalState
     const typeSearch = useStore(state => state.searchType);
-
     const changeTypeSearch = useStore(state => state.changeSearchingType);
+
+    //Handlers
     const changeTypeSearchHandler = (value: string) => changeTypeSearch(value);
 
     return (

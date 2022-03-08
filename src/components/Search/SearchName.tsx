@@ -3,9 +3,11 @@ import useStore from '../../tools/store';
 import styles from './search.module.css';
 
 const SearchName = () => {
+    //GlobalState
     const nameSearch = useStore(state => state.searchName);
-
     const changeSearch = useStore(state => state.changeSearchingName);
+
+    //Handler
     const changeSearchHandler = (value: string) => changeSearch(value);
 
     return (

@@ -6,18 +6,13 @@ import SearchType from './Search/SearchType';
 import useStore from '../tools/store';
 
 const App = () => {
+    //States
     const [darkTheme, setDarkTheme] = useState<boolean>(false);
     const [searchMode, setSearchMode] = useState<boolean>(false);
-    
-    const changeThemeHandler = () => {
-        localStorage.setItem('darkTheme', `${!darkTheme}`);
-        setDarkTheme(!darkTheme);
-    };
-    
-    const changeSearchModeHandler = () => setSearchMode(!searchMode);
-
+    //Zustand
     const getPokemons = useStore(state => state.fetch);
-
+    
+    //UseEffects
     useEffect(() => {
         if (localStorage.getItem('darkTheme') === null) {
             localStorage.setItem('darkTheme', 'false');
@@ -28,11 +23,18 @@ const App = () => {
         }
         getPokemons();
     }, []);
-
+    
+    //Handlers
     const loadPokemonsHandler = () => {
         getPokemons();
     };
+    const changeSearchModeHandler = () => setSearchMode(!searchMode);
 
+    const changeThemeHandler = () => {
+        localStorage.setItem('darkTheme', `${!darkTheme}`);
+        setDarkTheme(!darkTheme);
+    };
+    
     return (
         <div className={`container ${searchMode && 'searchModeEnabled'}`} data-theme={darkTheme && 'dark'}>
             <button className='button themeButton' onClick={changeThemeHandler}>
