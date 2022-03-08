@@ -1,33 +1,15 @@
 import React from 'react';
+import useStore from '../tools/store';
 import Pokemon from './Pokemon';
 import styles from  './pokemonList.module.css';
 
 const PokemonList = () => {
+
+  const loadedPokemons:any = useStore(state => state.pokemons);
+
   return (
     <div className={styles.wrapper}>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/1/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/2/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/3/'/>
-        <Pokemon pokemonUrl='https://pokeapi.co/api/v2/pokemon/266/'/>
-
+        {loadedPokemons?.map((el:any) => <Pokemon pokemonUrl={el.url} key={el.url}/>)}
     </div>
   );
 }

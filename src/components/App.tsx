@@ -16,6 +16,8 @@ const App = () => {
     
     const changeSearchModeHandler = () => setSearchMode(!searchMode);
 
+    const getPokemons = useStore(state => state.fetch);
+
     useEffect(() => {
         if (localStorage.getItem('darkTheme') === null) {
             localStorage.setItem('darkTheme', 'false');
@@ -24,7 +26,12 @@ const App = () => {
             const darkThemeStorage = JSON.parse(localStorage.getItem('darkTheme') || 'false');
             setDarkTheme(darkThemeStorage)
         }
+        getPokemons();
     }, []);
+
+    const loadPokemonsHandler = () => {
+        getPokemons();
+    };
 
     return (
         <div className={`container ${searchMode && 'searchModeEnabled'}`} data-theme={darkTheme && 'dark'}>
@@ -38,7 +45,8 @@ const App = () => {
                 <SearchName />    
                 <SearchType />    
             </div>
-            <PokemonList />     
+            <PokemonList />
+            <button onClick={loadPokemonsHandler}>Read more pokemons!</button>
         </div>
     );
 }
