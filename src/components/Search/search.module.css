@@ -1,0 +1,49 @@
+.wrapper{
+    height:40px;
+    width:300px;
+    margin:10px 15px;
+    display:flex;
+    align-items: center;
+    background-color: var(--background-secondary);
+    border-radius:4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.searchInput{
+    height:40px;
+    width:300px;
+    border:none;
+    font-size:24px;
+    background-color: var(--background-secondary);
+    color:var(--text-primary);
+    box-sizing:border-box;
+    padding:0 5px;
+}
+
+.searchInput:focus{
+    outline: none;
+}
+
+.clearInput{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:20px;
+    background-color: transparent;
+    /* background-color: var(--background-secondary); */
+    border: 2px solid var(--background);
+    color: var(--background);
+    cursor: pointer;
+    position: absolute;
+    right:5px;
+    transition:.2s;
+}
+
+.clearInputHidden{
+    right:-35px;
+}
+
+.clearInput:hover{
+
+}

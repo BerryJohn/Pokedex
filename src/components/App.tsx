@@ -1,19 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './app.css';
 import PokemonList from './PokemonList/PokemonList';
+import Search from './Search/Search';
 
-function App() {
-    const [isDark, setIsDark] = useState<boolean>(false);
-
+const App = () => {
+    const [darkTheme, setDarkTheme] = useState<boolean>(false);
+    const [searchMode, setSearchMode] = useState<boolean>(false);
+    
     const changeThemeHandler = () => {
-        setIsDark(!isDark);
+        localStorage.setItem('darkTheme', `${!darkTheme}`);
+        setDarkTheme(!darkTheme);
     };
+    
+    const changeSearchModeHandler = () => setSearchMode(!searchMode);
+
+    useEffect(() => {
+        if (localStorage.getItem('darkTheme') === null) {
+            localStorage.setItem('darkTheme', 'false');
+        }
+        else {
+            const darkThemeStorage = JSON.parse(localStorage.getItem('darkTheme') || 'false');
+            setDarkTheme(darkThemeStorage)
+        }
+    }, []);
 
     return (
-        <div className='container' data-theme={isDark && 'dark'}>
-            <button className='themeButton' onClick={changeThemeHandler}>
-             {isDark ? '☀️' : '🌙'}
+        <div className={`container ${searchMode && 'searchModeEnabled'}`} data-theme={darkTheme && 'dark'}>
+            <button className='button themeButton' onClick={changeThemeHandler}>
+                {darkTheme ? '☀️' : '🌙'}
             </button>
+            <button className='button searchButton' onClick={changeSearchModeHandler}>
+                🔎
+            </button>
+            <div className="test">
+                <Search />    
+                <Search />    
+            </div>
             <PokemonList />     
         </div>
     );

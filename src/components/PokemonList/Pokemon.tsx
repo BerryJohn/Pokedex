@@ -8,7 +8,6 @@ interface IPokemon{
 const Pokemon = (props: IPokemon) => {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-    const [error, setError] = useState<string>('');
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [pokemonData, setPokemonData] = useState<any>();
   
@@ -19,10 +18,6 @@ const Pokemon = (props: IPokemon) => {
           (result) => {
             setIsLoaded(true);
             setPokemonData(result);
-          },
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
           }
         )
     }, [])
