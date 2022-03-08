@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useStore from '../tools/store';
+import useStore from '../../tools/store';
 import styles from './pokemon.module.css';
 
 interface IPokemon{
@@ -22,13 +22,14 @@ const Pokemon = (props: IPokemon) => {
           }
         )
     }, [])
+    
     const searchingName= useStore(state => state.searchName);
     const searchingType= useStore(state => state.searchType);
 
     const expandHandler = () => setIsExpanded(!isExpanded);
 
-    if(( searchingName !== '' && !pokemonData?.name.includes(searchingName.toLocaleLowerCase().trim()) ) 
-    || (searchingType !== '' && !pokemonData?.types[0].type.name.includes(searchingType.toLocaleLowerCase().trim())))
+    if( (searchingName !== '' && !pokemonData?.name.includes(searchingName.toLocaleLowerCase().trim())) ||  
+        (searchingType !== '' && !pokemonData?.types[0].type.name.includes(searchingType.toLocaleLowerCase().trim())))
     {
         return <></>
     }

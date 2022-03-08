@@ -30,3 +30,25 @@ code {
   --background-opposed: rgb(219, 219, 219);
   --text-primary: rgb(201, 201, 201);
 }
+
+/* BAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(95, 95, 95);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(56, 56, 56);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(39, 39, 39);
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import useStore from '../tools/store';
+import useStore from '../../tools/store';
 import Pokemon from './Pokemon';
 import styles from  './pokemonList.module.css';
 

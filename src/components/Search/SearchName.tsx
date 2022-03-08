@@ -1,10 +1,8 @@
 import React from 'react';
-import useStore from '../tools/store';
+import useStore from '../../tools/store';
 import styles from './search.module.css';
 
-type Props = {};
-
-const SearchName = (props: Props) => {
+const SearchName = () => {
     const nameSearch = useStore(state => state.searchName);
 
     const changeSearch = useStore(state => state.changeSearchingName);
@@ -13,7 +11,7 @@ const SearchName = (props: Props) => {
     return (
       <div className={styles.wrapper}>
             <input 
-                placeholder='Search by name'
+                placeholder='search by name'
                 type='text' 
                 className={styles.searchInput} 
                 value={nameSearch} 

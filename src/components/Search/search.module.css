@@ -8,6 +8,7 @@
     border-radius:4px;
     position: relative;
     overflow: hidden;
+    transition:.1s;
 }
 
 .searchInput{
@@ -19,6 +20,7 @@
     color:var(--text-primary);
     box-sizing:border-box;
     padding:0 5px;
+    font-variant: small-caps;
 }
 
 .searchInput:focus{
@@ -31,7 +33,6 @@
     border:none;
     border-radius:20px;
     background-color: transparent;
-    /* background-color: var(--background-secondary); */
     border: 2px solid var(--background);
     color: var(--background);
     cursor: pointer;
@@ -46,4 +47,14 @@
 
 .clearInput:hover{
 
+}
+
+@media (max-width: 520px) { 
+    .wrapper{
+        width:200px;
+    }
+    .searchInput{
+        width:200px;
+        font-size:20px;
+    }
 }

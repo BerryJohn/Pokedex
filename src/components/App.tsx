@@ -3,7 +3,7 @@ import './app.css';
 import PokemonList from './PokemonList/PokemonList';
 import SearchName from './Search/SearchName';
 import SearchType from './Search/SearchType';
-import useStore from './tools/store';
+import useStore from '../tools/store';
 
 const App = () => {
     const [darkTheme, setDarkTheme] = useState<boolean>(false);
@@ -41,12 +41,12 @@ const App = () => {
             <button className='button searchButton' onClick={changeSearchModeHandler}>
                 🔎
             </button>
-            <div className="test">
+            <div className="searchBar">
                 <SearchName />    
                 <SearchType />    
             </div>
             <PokemonList />
-            <button onClick={loadPokemonsHandler}>Read more pokemons!</button>
+            <button onClick={loadPokemonsHandler} className='readButton'>read more pokemons!</button>
         </div>
     );
 }

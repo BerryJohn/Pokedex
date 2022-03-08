@@ -5,3 +5,32 @@
     grid-template-columns: repeat(5, 210px);
     grid-auto-rows: 130px;
 }
+ 
+@media (max-width: 1200px) { 
+    .wrapper{
+        width:840px;
+        grid-template-columns: repeat(4, 210px); 
+    }
+}
+    
+@media (max-width: 992px) {     
+    .wrapper{
+        width:630px;
+        grid-template-columns: repeat(3, 210px); 
+    } 
+}
+    
+@media (max-width: 768px) { 
+    .wrapper{
+        width:420px;
+        grid-template-columns: repeat(2, 210px);
+    } 
+}
+
+@media (max-width: 576px) { 
+    .wrapper{
+        width:210px;
+        grid-template-columns: repeat(1, 210px);
+    }
+}
+ 

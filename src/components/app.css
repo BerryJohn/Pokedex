@@ -1,20 +1,19 @@
 .container{
-    box-sizing: border-box;
-    background-color: var(--background);
+    box-sizing:border-box;
+    background-color:var(--background);
     width:100vw;
     min-height:100vh;
-    position: relative;
-    transition: padding .2s;
-    color: var(--text-primary);
+    position:relative;
+    transition:padding .2s;
+    color:var(--text-primary);
     display:flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction:column;
+    align-items:center;
     padding-top:5px;
-    /* justify-content: center; */
 }
 
 .searchModeEnabled{
-    padding-top:55px;
+    padding-top:60px;
 }
 
 .button{
@@ -28,7 +27,7 @@
     transition:.1s;
     cursor: pointer;
     text-align: center;
-
+    position:fixed;
 }
 
 .button:hover{
@@ -45,13 +44,48 @@
     top:20px;
 }
 
-.test{
-    position:absolute;
-    top:-55px;
+.searchBar{
+    position:fixed;
+    top:-150px;
     transition:.2s;
     display:flex;
+    z-index: 999;
+    background-color: var(--background);
+    box-shadow:0 0 6px var(--background);
+    border-radius:4px;
 }
 
-.searchModeEnabled > .test{
-    top:0px;
+.searchModeEnabled > .searchBar{
+    top:5px;
+}
+
+.readButton{
+    width:200px;
+    height:30px;
+    border:none;
+    background-color: var(--background);
+    border:2px solid var(--background-secondary);
+    color:var(--text-primary);
+    font-variant: small-caps;
+    border-radius:3px;
+    transition:.1s;
+    cursor:pointer;
+    margin:10px 0;
+}
+
+.readButton:hover{
+    background-color: var(--background-secondary);
+    box-shadow:0 0 6px var(--background-secondary);
+}
+    
+@media (max-width: 880px) { 
+    .searchBar{
+        flex-direction: column;
+    }
+    .searchModeEnabled > .searchBar{
+        top:5px;
+    }
+    .searchModeEnabled{
+        padding-top:125px;
+    }
 }
