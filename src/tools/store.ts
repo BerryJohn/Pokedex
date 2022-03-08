@@ -1,6 +1,5 @@
 import create from 'zustand';
 
-
 type PokemonState = {
     searchName: string;
     searchType: string;

@@ -11,6 +11,7 @@ const App = () => {
     const [searchMode, setSearchMode] = useState<boolean>(false);
     //Zustand
     const getPokemons = useStore(state => state.fetch);
+    const getApi = useStore(state => state.pokeApi);
     
     //UseEffects
     useEffect(() => {
@@ -48,7 +49,8 @@ const App = () => {
                 <SearchType />    
             </div>
             <PokemonList />
-            <button onClick={loadPokemonsHandler} className='readButton'>read more pokemons!</button>
+            {/* Check if another sets of pokemons are avaiable */}
+            {getApi ? <button onClick={loadPokemonsHandler} className='readButton'>read more pokemons!</button> : ''}
         </div>
     );
 }
